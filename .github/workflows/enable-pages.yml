@@ -28,7 +28,8 @@ jobs:
                 const created = await github.rest.repos.createPagesSite({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  build_type: 'workflow',
+                  build_type: 'legacy',
+                  source: { branch: 'master', path: '/' },
                 });
                 core.info('Pages created: ' + JSON.stringify(created.data));
               } catch (e2) {

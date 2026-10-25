@@ -1,0 +1,21 @@
+name: Enable Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  enable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v6.0.0
+        with:
+          enablement: true
+      - name: Check Pages
+        run: |
+          echo "Pages should be enabled now"
